@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: white;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* ⬅️ Use min-height instead */
+  overflow-x: hidden; /* ⬅️ Prevent horizontal scroll */
+}
+
+.container {
+  display: flex;
+  min-height: 100vh; /* ⬅️ Allow it to grow if content increases */
+  flex-wrap: wrap; /* ⬅️ Optional: stack sections on small screens */
+}
+
+/* Left: Form section */
+.form-section {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.auth-card {
+  background-color: #161616;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+  width: 100%;
+  max-width: 450px;
+}
+
+.auth-card h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #00ffff;
+}
+
+.auth-card p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+/* Tab Switch / Toggle */
+.tab-toggle {
+  display: flex;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #1e1e1e;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: #00ffff;
+  color: black;
+}
+
+/* Inputs */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #2b2b2b;
+  color: white;
+}
+
+/* Buttons */
+.continue-btn {
+  width: 100%;
+  padding: 12px;
+  background: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.continue-btn:hover {
+  background: #0055cc;
+}
+
+.or-divider {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* GOOGLE BUTTON */
+.google-login {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.google-btn {
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.google-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.5);
+}
+
+.google-icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* Optional fallback for other socials */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-btn {
+  background: #2b2b2b;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.social-btn:hover {
+  background: #00ffff;
+  color: #000;
+}
+
+.info-text {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 20px;
+  color: #888;
+}
+
+.signup-link {
+  color: #00ffff;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
+}
+
+/* Right: Image section */
+.visual-section {
+  width: 50%;
+  background: radial-gradient(circle at center, #001f33 0%, #000a14 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.vault-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.vault-image:hover {
+  transform: scale(1.05);
+}
+
+/* Error message */
+.signup-error {
+  color: #ff4444;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 10px;
+}

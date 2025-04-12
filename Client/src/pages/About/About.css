@@ -1,0 +1,116 @@
+.about-container {
+  font-family: "Helvetica Neue", sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.nav a {
+  margin-left: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: white;
+}
+
+.team-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  background-color: transparent;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #666;
+}
+
+/* Banner Section */
+.banner {
+  background-image: url("./bakimage.png"); /* Replace with your actual image path */
+  background-size: cover;
+  background-position: center;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-text {
+  font-size: 3rem;
+  color: white;
+  /* background: rgba(0, 0, 0, 0.5); */
+  padding: 1rem 2rem;
+  font-family: "Brush Script MT", cursive;
+}
+
+/* Team Section */
+.team-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: white;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.team-section p {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  color: #666;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.team-card {
+  background-color: #f3f3f3;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.team-card h4 {
+  font-size: 1rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.team-card p {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.team-card small {
+  color: #888;
+  font-size: 0.8rem;
+}

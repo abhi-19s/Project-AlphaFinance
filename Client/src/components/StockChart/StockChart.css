@@ -1,0 +1,109 @@
+.chart-wrapper {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.stock-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.stock-info h2 {
+  font-size: 28px;
+  color: #222;
+}
+
+.stock-info p {
+  font-size: 18px;
+}
+
+.change-badge {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-left: 10px;
+  color: white;
+}
+
+.change-badge.green {
+  background-color: #00c853;
+}
+
+.change-badge.red {
+  background-color: #d50000;
+}
+
+.change-badge.gray {
+  background-color: #9e9e9e;
+}
+
+.chart-card {
+  margin-top: 20px;
+}
+
+.loading-message,
+.error-message {
+  text-align: center;
+  font-size: 18px;
+  color: #444;
+}
+.chart-wrapper {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #000000; /* black background */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  font-family: 'Segoe UI', sans-serif;
+  color: white; /* all text white */
+}
+
+.stock-info h2 {
+  font-size: 28px;
+  color: white;
+}
+
+.stock-info p {
+  font-size: 18px;
+  color: white;
+}
+
+.loading-message,
+.error-message {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.price-change-box {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.price-change-box.up {
+  background-color: #007bff; /* Blue for positive */
+  color: white;
+}
+
+.price-change-box.down {
+  background-color: #dc3545; /* Red for negative */
+  color: white;
+}
+
+.price-change-box.same {
+  background-color: #6c757d; /* Gray for no change */
+  color: white;
+}
