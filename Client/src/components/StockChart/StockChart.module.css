@@ -1,0 +1,107 @@
+/* StockChart.module.css */
+
+/* Main container for the chart and info */
+.chartWrapper {
+  max-width: 950px; /* Slightly wider */
+  margin: 30px auto;
+  padding: 20px 25px 25px 25px; /* Adjusted padding */
+  background: #1e1e1e; /* Dark background */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Darker shadow */
+  border-radius: 12px; /* Slightly smaller radius */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font stack */
+  color: #e0e0e0; /* Light gray text color for better readability */
+}
+
+/* Stock info section (name, price, change) */
+.stockInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px; /* Space below info */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 10px; /* Add gap between items when wrapped */
+}
+
+/* Targeting h2 specifically within stockInfo for specificity */
+.stockInfo h2 {
+  font-size: 1.8rem; /* Relative unit */
+  color: #ffffff; /* Pure white for title */
+  margin: 0; /* Remove default margin */
+  font-weight: 600;
+}
+
+/* Targeting p specifically within stockInfo */
+.stockInfo p {
+  font-size: 1.1rem; /* Relative unit */
+  color: #e0e0e0; /* Match default text color */
+  margin: 0;
+  display: flex; /* Align text and badge */
+  align-items: center;
+  gap: 5px; /* Gap between price and badge */
+}
+
+.stockInfo strong {
+    color: #ffffff; /* Make price stand out */
+    font-weight: 600;
+}
+
+/* Base style for the price change indicator */
+.priceChangeBox {
+  display: inline-block;
+  padding: 5px 10px; /* Slightly more padding */
+  border-radius: 6px;
+  margin-left: 8px; /* Consistent margin */
+  font-weight: bold;
+  font-size: 0.9rem; /* Relative unit */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: white; /* Default text color */
+  line-height: 1; /* Prevent extra line height */
+  text-align: center;
+  min-width: 60px; /* Minimum width for consistency */
+}
+
+/* Modifier class for positive change */
+.priceChangeBox.up {
+  background-color: #28a745; /* Bootstrap success green */
+}
+
+/* Modifier class for negative change */
+.priceChangeBox.down {
+  background-color: #dc3545; /* Bootstrap danger red */
+}
+
+/* Modifier class for no change or N/A */
+.priceChangeBox.same {
+  background-color: #6c757d; /* Bootstrap secondary gray */
+}
+
+/* Container specifically for the chart canvas */
+.chartCard {
+  margin-top: 15px; /* Reduced margin */
+  position: relative; /* Needed for chart responsiveness */
+  /* Explicit height is crucial when maintainAspectRatio: false */
+  height: 450px; /* Adjust height as needed */
+  width: 100%;
+}
+
+/* Styling for loading message */
+.loadingMessage {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #cccccc; /* Lighter gray */
+  padding: 50px 0;
+}
+
+/* Styling for error message */
+.errorMessage {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ff8a80; /* Softer red for error */
+  font-weight: 500;
+  padding: 50px 15px; /* Add horizontal padding */
+  background-color: rgba(255, 0, 0, 0.05); /* Subtle red background */
+  border: 1px solid rgba(255, 0, 0, 0.2); /* Subtle red border */
+  border-radius: 8px;
+}

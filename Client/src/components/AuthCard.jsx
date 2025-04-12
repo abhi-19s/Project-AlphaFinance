@@ -1,30 +1,66 @@
+// import React from 'react';
+// import googleIcon from '../assets/googleicon.png'
+
+
+// export default function AuthCard({ title, subtitle, onSubmit, children, error, footer }) {
+//   return (
+//     <div className="auth-card">
+//       <h2>{title}</h2>
+//       <p>{subtitle}</p>
+
+//       <form onSubmit={onSubmit}>
+//         {children}
+
+//         <button type="submit" className="continue-btn">
+//           Continue
+//         </button>
+
+//         <div className="or-divider"><span>Or continue with</span></div>
+
+//         <div className="socials single-social">
+//           <button type="button" className="social-btn google-btn">
+//             <img src={googleIcon} alt="Google" style={{ width: '22px' }} />
+//           </button>
+//         </div>
+
+//         {error && <p className="signup-error">{error}</p>}
+//       </form>
+
+//       {footer && <p className="info-text">{footer}</p>}
+//     </div>
+//   );
+// }
+
+
 import React from 'react';
-import googleIcon from '../assets/googleicon.png'
+import styles from '../pages/sign.module.css';
+import googleIcon from '../assets/googleicon.png';
+
 export default function AuthCard({ title, subtitle, onSubmit, children, error, footer }) {
   return (
-    <div className="auth-card">
+    <div className={styles['auth-card']}>
       <h2>{title}</h2>
       <p>{subtitle}</p>
 
       <form onSubmit={onSubmit}>
         {children}
 
-        <button type="submit" className="continue-btn">
+        <button type="submit" className={styles['continue-btn']}>
           Continue
         </button>
 
-        <div className="or-divider"><span>Or continue with</span></div>
+        <div className={styles['or-divider']}><span>Or continue with</span></div>
 
-        <div className="socials single-social">
-          <button type="button" className="social-btn google-btn">
+        <div className={`${styles.socials} ${styles['single-social']}`}>
+          <button type="button" className={`${styles['social-btn']} ${styles['google-btn']}`}>
             <img src={googleIcon} alt="Google" style={{ width: '22px' }} />
           </button>
         </div>
 
-        {error && <p className="signup-error">{error}</p>}
+        {error && <p className={styles['signup-error']}>{error}</p>}
       </form>
 
-      {footer && <p className="info-text">{footer}</p>}
+      {footer && <p className={styles['info-text']}>{footer}</p>}
     </div>
   );
 }

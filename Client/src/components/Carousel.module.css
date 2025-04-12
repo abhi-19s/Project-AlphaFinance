@@ -1,0 +1,202 @@
+/* Carousel.module.css */
+
+.carouselContainer {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  /* Adjusted height to better fit content potentially */
+  height: 350px; /* Slightly increased height */
+  margin: 20px auto; /* Added vertical margin */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+/* Added a wrapper for potential future transition effects */
+.slideWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex; /* Needed if using transition effects */
+    /* transition: transform 0.5s ease-in-out; */ /* Example transition */
+}
+
+
+.carouselSlide {
+  display: flex;
+  align-items: center;
+  /* Removed justify-content to allow text alignment */
+  width: 100%;
+  height: 100%;
+   /* Added a fallback background */
+  background: linear-gradient(135deg, #007bff, #0048a0), #005cb3;
+  color: white;
+  /* text-align: center; */ /* Removed default center align for text */
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in width/height */
+  flex-shrink: 0; /* Important for wrapper transitions */
+}
+
+.carouselImage {
+  /* Adjusted width to be slightly smaller */
+  width: 35%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px; /* Slightly smaller radius */
+  margin-right: 25px; /* Added margin */
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+/* Optional Placeholder */
+.imagePlaceholder {
+    width: 35%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    margin-right: 25px;
+    flex-shrink: 0;
+    font-style: italic;
+}
+
+.carouselText {
+  /* Allow text to take remaining space */
+  flex-grow: 1;
+  width: auto; /* Let flexbox determine width */
+  text-align: left;
+  /* padding-left: 20px; */ /* Removed padding-left as image has margin-right */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  max-height: 100%; /* Ensure it doesn't overflow container height */
+}
+
+.carouselText h2 {
+  font-size: 1.8rem;
+  margin: 0 0 10px 0; /* Added bottom margin */
+  line-height: 1.2; /* Adjusted line height */
+}
+
+/* Removed h3 style as it wasn't used in JSX */
+
+.carouselText p {
+  font-size: 1rem;
+  line-height: 1.5; /* Improve readability */
+  margin-bottom: 8px; /* Space between paragraphs */
+}
+
+/* Style for utility classes if needed within module */
+/* Example:
+.textSm { font-size: 0.875rem; }
+.textGray200 { color: #e5e7eb; } // Example color
+.mb2 { margin-bottom: 0.5rem; }
+.textYellow300 { color: #fcd34d; } // Example color
+.underline { text-decoration: underline; }
+.mt2 { margin-top: 0.5rem; }
+.inlineBlock { display: inline-block; }
+*/
+
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8); /* Slightly more opaque */
+  border: none;
+  color: #333; /* Darker icon color for contrast */
+  cursor: pointer;
+  z-index: 10;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex; /* Center icon */
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease; /* Smooth hover */
+}
+
+.carouselArrow:hover {
+    background: rgba(255, 255, 255, 1); /* Fully opaque on hover */
+}
+
+.carouselArrow.left {
+  left: 15px; /* Slightly more inset */
+}
+
+.carouselArrow.right {
+  right: 15px; /* Slightly more inset */
+}
+
+.carouselDots {
+  position: absolute;
+  bottom: 15px; /* Raised slightly */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  z-index: 10; /* Ensure dots are above content */
+}
+
+/* Changed dot from span to button */
+.dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: white;
+  border-radius: 50%;
+  border: none; /* Remove default button border */
+  padding: 0; /* Remove default button padding */
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.dot:hover {
+    opacity: 0.75;
+}
+
+.dot.active {
+  opacity: 1;
+  background-color: #f0f0f0; /* Slightly different active color */
+}
+
+/* Media query example */
+@media (max-width: 768px) {
+    .carouselContainer {
+        height: auto; /* Auto height for mobile */
+        max-height: 500px; /* Limit max height */
+    }
+    .carouselSlide {
+        flex-direction: column; /* Stack image and text */
+        padding: 15px;
+        text-align: center; /* Center text on mobile */
+    }
+    .carouselImage, .imagePlaceholder {
+        width: 100%; /* Full width image */
+        max-height: 200px; /* Limit image height */
+        margin-right: 0;
+        margin-bottom: 15px; /* Space below image */
+    }
+    .carouselText {
+         text-align: center; /* Center text */
+         width: 100%;
+         padding-left: 0;
+         max-height: none; /* Remove max height */
+         overflow-y: visible;
+    }
+     .carouselText h2 {
+        font-size: 1.5rem;
+    }
+    .carouselText p {
+        font-size: 0.9rem;
+    }
+     .carouselArrow {
+        padding: 8px;
+        /* Consider slightly reducing icon size on mobile */
+    }
+     .carouselDots {
+        bottom: 10px;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+}

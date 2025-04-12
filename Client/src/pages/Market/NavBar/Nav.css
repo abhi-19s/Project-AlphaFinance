@@ -1,71 +1,89 @@
-/* Nav.css */
-
 .sidebar-container {
   display: flex;
-  margin:0px;
-  padding:0px;
-  /* min-height: calc(100vh - 80px); Adjust based on header height */
-  background-color: #000;         /* Main black background */
+  min-height: 100vh;
 }
 
 .sidebar {
+  background-color: #333;
+  color: #fff;
   width: 250px;
-  background-color: #1e1e1e;
-  color: white;
-  transition: width 0.3s ease;
-  padding-top: 1rem;
-  position: relative;
+  padding-top: 20px;
+  transition: width 0.3s ease-in-out;
+  overflow-x: hidden;
 }
 
 .sidebar.closed {
-  width: 80px;
+  width: 60px;
 }
 
 .toggle-btn {
   background: none;
   border: none;
-  color: white;
-  padding: 1rem;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
   cursor: pointer;
+  display: flex;
+  justify-content: flex-end; /* Keep icon on the right when open */
+  align-items: center;
+  width: 100%; /* Ensure full width for click area */
+}
+
+.sidebar.closed .toggle-btn {
+  justify-content: center;
 }
 
 .logo {
-  padding: 0 1rem;
-  font-size: 1.3rem;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 1.5em;
   font-weight: bold;
-  margin-bottom: 1rem;
+}
+
+.sidebar.closed .logo {
+  padding: 15px 10px;
+  font-size: 1.2em;
 }
 
 .nav-links {
   list-style: none;
   padding: 0;
+  margin-top: 20px;
 }
 
 .nav-link {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 0.75rem 1rem;
-  color: #130f40;
-  transition: background 0.3s;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #eee;
+  transition: background-color 0.3s ease;
 }
 
-.nav-link:hover,
 .nav-link.active {
-  background-color: #2f3542;
-  border-radius: 8px;
+  background-color: #555;
 }
 
-.show {
-  display: inline;
+.nav-link:hover {
+  background-color: #444;
 }
 
-.hide {
-  display: none;
+.nav-link svg {
+  margin-right: 10px;
+}
+
+.nav-link span {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar.closed .nav-link span {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
 }
 
 .main-content {
-  flex: 1;
-  padding: 2rem;
-  color: white;
+  flex-grow: 1;
+  padding: 20px;
 }

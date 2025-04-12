@@ -1,17 +1,12 @@
 body {
-  background-color: #c8d6e5;
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: 'Segoe UI', sans-serif;
-  color: #2C3A47;
-}
-
-.market-container {
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  margin: 2rem auto;
-  max-width: 1200px;
+  color: #e0e8ef;
+  background-color: #002347;
 }
 
 .stock-list {

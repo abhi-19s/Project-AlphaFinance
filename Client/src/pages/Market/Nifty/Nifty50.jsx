@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./Nifty50.css"; // Import the CSS file
 import axios from "axios";
-const YOUR_API_KEY = "SmSQFxKd5Og0BQXMz1X2JE0D_4axIQaL";
-const NIFTY_50_API = `https://api.polygon.io/v2/aggs/ticker/NFTY/prev?apiKey=${YOUR_API_KEY}`;
+import CountUp from "react-countup";
+import { motion } from "framer-motion";
+import "./Nifty50.css";
 
+const API_KEY = "SmSQFxKd5Og0BQXMz1X2JE0D_4axIQaL";
+const NIFTY_50_API = `https://api.polygon.io/v2/aggs/ticker/NFTY/prev?apiKey=${API_KEY}`;
 
 const Nifty50 = () => {
   const [data, setData] = useState(null);
@@ -12,32 +14,70 @@ const Nifty50 = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(NIFTY_50_API);
-        setData(response.data);
+        const res = await axios.get(NIFTY_50_API);
+        setData(res.data.results[0]);
       } catch (err) {
-        setError(err.response?.statusText || "Failed to fetch Nifty 50 data");
+        setError("Failed to fetch Nifty 50 data");
       }
     };
-
     fetchData();
   }, []);
 
+  const change = data ? (data.c - data.o).toFixed(2) : 0;
+  const changeColor = change >= 0 ? "#2ecc71" : "#e74c3c";
+
   return (
-    <div className="container">
-      <h2>First Trust India NIFTY 50 Equal Weight ETF (NFTY)</h2>
-      <p>Market Data for previous day</p>
-      {error && <p className="error">Error: {error}</p>}
-      {data && data.results && (
-        <ul>
-          <li><span>Opening Price:</span> {data.results[0].o}</li>
-          <li><span>Closing Price:</span> {data.results[0].c}</li>
-          <li><span>Highest Price:</span> {data.results[0].h}</li>
-          <li><span>Lowest Price:</span> {data.results[0].l}</li>
-          <li><span>Trading Volume:</span> {data.results[0].v}</li>
-          <li><span>Number of Trades:</span> {data.results[0].n}</li>
-          <li><span>Total Change:</span> {data.results[0].c - data.results[0].o}</li>
-        </ul>
-      )}
+    <div className="nifty-wrapper">
+      <motion.div
+        className="nifty-card"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2>NIFTY 50 ETF (NFTY)</h2>
+        <p className="subtext">Previous day market summary</p>
+        {error && <p className="error">{error}</p>}
+        {data && (
+          <div className="data-grid">
+            <div>
+              <span>Open:</span>
+              <CountUp end={data.o} decimals={2} duration={1.2} />
+            </div>
+            <div>
+              <span>Close:</span>
+              <CountUp end={data.c} decimals={2} duration={1.2} />
+            </div>
+            <div>
+              <span>High:</span>
+              <CountUp end={data.h} decimals={2} duration={1.2} />
+            </div>
+            <div>
+              <span>Low:</span>
+              <CountUp end={data.l} decimals={2} duration={1.2} />
+            </div>
+            <div>
+              <span>Volume:</span>
+              <CountUp end={data.v} separator="," duration={1.2} />
+            </div>
+            <div>
+              <span>Trades:</span>
+              <CountUp end={data.n} separator="," duration={1.2} />
+            </div>
+            <div>
+              <span>Total Change:</span>
+              <CountUp
+                end={change}
+                decimals={2}
+                duration={1.2}
+                style={{ color: changeColor }}
+              />
+              <span className="change-icon" style={{ color: changeColor }}>
+                {change >= 0 ? " 🔼" : " 🔽"}
+              </span>
+            </div>
+          </div>
+        )}
+      </motion.div>
     </div>
   );
 };

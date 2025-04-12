@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { FiHome, FiUser, FiMenu } from "react-icons/fi";
+import { SiBitcoin } from 'react-icons/si';
+import { FaChartLine } from 'react-icons/fa';
+import { FaRocket ,FaFileContract} from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
 import "./Nav.css";
 
-const Sidebar = () => {
+const Sidebar = () => { 
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -29,7 +32,7 @@ const Sidebar = () => {
                   to="/market/stock-exchange"
                   className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
               >
-                <FiUser size={20} />
+                <FaChartLine size={20} />
                 <span className={isOpen ? "show" : "hide"}>Stock Exchanges</span>
               </NavLink>
             </li>
@@ -38,7 +41,7 @@ const Sidebar = () => {
                   to="/market/ipo"
                   className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
               >
-                <FiUser size={20} />
+                <FaRocket size={20} />
                 <span className={isOpen ? "show" : "hide"}>IPO</span>
               </NavLink>
             </li>
@@ -47,7 +50,7 @@ const Sidebar = () => {
                   to="/market/crypto"
                   className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
               >
-                <FiUser size={20} />
+                <SiBitcoin size={20} />
                 <span className={isOpen ? "show" : "hide"}>Crypto</span>
               </NavLink>
             </li>

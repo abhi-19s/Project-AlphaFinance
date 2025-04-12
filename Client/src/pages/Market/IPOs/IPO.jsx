@@ -12,7 +12,7 @@ const IPO = () => {
 
         try {
             const response = await axios.get(
-                `https://financialmodelingprep.com/api/v3/search-ticker?query=${query}&limit=10&exchange=NASDAQ&apikey=Bplj7Z2cMYJx3amgnhHw9ZKLc2PylUhM`,
+                `https://financialmodelingprep.com/api/v3/search-ticker?query=${query}&limit=10&exchange=NSE&apikey=Bplj7Z2cMYJx3amgnhHw9ZKLc2PylUhM`,
                 // {
                 //     params: {
                 //         query: query,

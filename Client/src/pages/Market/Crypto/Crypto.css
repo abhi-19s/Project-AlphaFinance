@@ -1,28 +1,8 @@
-body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-size: cover;
-  color: #f0f0f0;
-}
-
 .crypto-container {
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  border-radius: 16px;
-  background: url("src/pages/Market/Crypto/Screenshot 2025-04-06 at 12.22.29 PM.png");
-  max-width: 1000px;
-  margin: 2rem auto;
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
-}
-
-.crypto-container h1 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-  background: linear-gradient(90deg, #00ffff, #00ff6a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: Arial, sans-serif;
+  color: white;
+  background-color: #121212;
 }
 
 .crypto-table-wrapper {
@@ -32,32 +12,78 @@ body {
 .crypto-table {
   width: 100%;
   border-collapse: collapse;
-  border-radius: 12px;
+  margin-top: 1rem;
+  border-radius: 10px;
   overflow: hidden;
+  background: linear-gradient(270deg, #7c7a7a, #585555, #1e1e1e);
+  background-size: 600% 600%;
+  animation: moveBackground 20s ease infinite;
 }
 
-.crypto-table thead {
-  background-color: #0d1117;
-  color: #00ffff;
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.crypto-table th,
-.crypto-table td {
-  padding: 12px 16px;
+.crypto-table th, .crypto-table td {
+  padding: 1rem;
   text-align: center;
+  border-bottom: 1px solid #2e2e2e;
+  transition: background-color 0.3s ease;
 }
 
-.crypto-table tr:nth-child(even) {
-  background-color: rgba(255, 255, 255, 0.05);
+/* Entry animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.crypto-table tr:hover {
-  background-color: rgba(0, 255, 255, 0.1);
-  transition: 0.3s ease;
+/* Highlighting color change */
+@keyframes bgFlashGreen {
+  0% {
+    background-color: rgba(0, 255, 0, 0.1);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes bgFlashRed {
+  0% {
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.crypto-table tbody tr {
+  animation: slideIn 0.5s ease forwards;
+}
+
+/* Apply background flash when value updates */
+.flash-green {
+  animation: bgFlashGreen 1s ease;
+}
+
+.flash-red {
+  animation: bgFlashRed 1s ease;
 }
 
 .error {
   color: red;
-  text-align: center;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }

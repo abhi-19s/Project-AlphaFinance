@@ -10,11 +10,13 @@ import {
   Tooltip,
   Legend,
   Title,
-  CategoryScale,
+  CategoryScale, // Keeping CategoryScale as it was in the original code
 } from 'chart.js';
 import 'chartjs-adapter-date-fns';
 import axios from 'axios';
-import './StockChart.css';
+// Removed old CSS import: import './StockChart.css';
+// Added CSS Module import
+import styles from './StockChart.module.css';
 import { useLocation } from 'react-router';
 
 ChartJS.register(
@@ -26,7 +28,7 @@ ChartJS.register(
   Tooltip,
   Legend,
   Title,
-  CategoryScale
+  CategoryScale // Keeping CategoryScale registration
 );
 
 const StockChart = () => {
@@ -35,8 +37,9 @@ const StockChart = () => {
   const [latestPrice, setLatestPrice] = useState(null);
   const [prevPrice, setPrevPrice] = useState(null);
   const { state } = useLocation();
-  const name = state?.name || '';
+  const name = state?.name || ''; // Original logic for name
 
+  // Original useEffect logic
   useEffect(() => {
     if (!name) return;
 
@@ -47,7 +50,7 @@ const StockChart = () => {
       setPrevPrice(null);
 
       try {
-        const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${name}&interval=5min&apikey=1T217SKMSA9A7F00`;
+        const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${name}&interval=5min&apikey=1T217SKMSA9A7F00`; // Original URL
 
         const response = await axios.get(url);
         const timeSeries = response.data['Time Series (5min)'];
@@ -56,16 +59,23 @@ const StockChart = () => {
           throw new Error('Invalid stock symbol or API error.');
         }
 
+        // Original data processing logic
         const labels = Object.keys(timeSeries).reverse();
         const closePrices = labels.map(t => parseFloat(timeSeries[t]['4. close']));
         const volumes = labels.map(t => parseInt(timeSeries[t]['5. volume']));
 
         const len = closePrices.length;
-        setLatestPrice(closePrices[len - 1]);
-        setPrevPrice(closePrices[len - 2]);
+        // Original price setting logic
+        if (len > 0) {
+            setLatestPrice(closePrices[len - 1]);
+        }
+        if (len > 1) {
+            setPrevPrice(closePrices[len - 2]);
+        }
+
 
         setChartData({
-          labels,
+          labels, // Using original string labels
           datasets: [
             {
               type: 'line',
@@ -95,14 +105,17 @@ const StockChart = () => {
     fetchStockData();
   }, [name]);
 
+  // Original price change calculation
   const priceChangePercent =
-    latestPrice && prevPrice
+    latestPrice !== null && prevPrice !== null && prevPrice !== 0 // Added check for prevPrice not being 0
       ? (((latestPrice - prevPrice) / prevPrice) * 100).toFixed(2)
       : null;
 
+  // Note: priceColor variable wasn't used in the original JSX, so keeping it as is
   const priceColor =
     priceChangePercent > 0 ? 'green' : priceChangePercent < 0 ? 'red' : 'gray';
 
+  // Original chart options
   const options = {
     responsive: true,
     interaction: {
@@ -129,7 +142,7 @@ const StockChart = () => {
     },
     scales: {
       x: {
-        type: 'time',
+        type: 'time', // Keeping time scale as it's registered
         time: {
           unit: 'minute',
           displayFormats: {
@@ -184,32 +197,41 @@ const StockChart = () => {
   };
 
   return (
-    <div className="chart-wrapper">
+    // Apply styles.chartWrapper to the main container
+    <div className={styles.chartWrapper}>
       {error ? (
-        <div className="error-message">⚠️ {error}</div>
+        // Apply styles.errorMessage
+        <div className={styles.errorMessage}>⚠️ {error}</div>
       ) : !chartData ? (
-        <div className="loading-message">⏳ Loading chart data...</div>
+        // Apply styles.loadingMessage
+        <div className={styles.loadingMessage}>⏳ Loading chart data...</div>
       ) : (
         <>
-          <div className="stock-info">
+          {/* Apply styles.stockInfo */}
+          <div className={styles.stockInfo}>
             <h2>{name.toUpperCase()}</h2>
             <p>
-              Latest Price: <strong>${latestPrice?.toFixed(2)}</strong>{' '}
-              <span
-                className={
-                  priceChangePercent > 0
-                    ? 'price-change-box up'
-                    : priceChangePercent < 0
-                      ? 'price-change-box down'
-                      : 'price-change-box same'
-                }
-              >
-                {priceChangePercent > 0 ? '+' : ''}
-                {priceChangePercent}%
-              </span>
+              Latest Price: <strong>${latestPrice?.toFixed(2) ?? 'N/A'}</strong>{' '}
+              {/* Apply styles.priceChangeBox and conditional up/down/same styles */}
+              {priceChangePercent !== null && ( // Render span only if percent is calculated
+                 <span
+                    className={
+                      `${styles.priceChangeBox} ${ // Base class
+                         priceChangePercent > 0
+                           ? styles.up // Up class from module
+                           : priceChangePercent < 0
+                             ? styles.down // Down class from module
+                             : styles.same}` // Same class from module
+                     }
+                 >
+                    {priceChangePercent > 0 ? '+' : ''}
+                    {priceChangePercent}%
+                </span>
+              )}
             </p>
           </div>
-          <div className="chart-card">
+          {/* Apply styles.chartCard */}
+          <div className={styles.chartCard}>
             <Line data={chartData} options={options} />
           </div>
         </>

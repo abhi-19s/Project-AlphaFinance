@@ -91,3 +91,25 @@ img.logo-img{
 .search-bar button:hover {
     background-color: #005fa3;
 }
+
+.signup-btn:hover {
+    background-color: #005fa3;
+}
+
+.navlink {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navlink:hover {
+    text-decoration: underline;
+  }
+  
+  .active {
+    text-decoration: underline;
+    /* color: #00ffff; Optional: highlight active */
+  }
+  

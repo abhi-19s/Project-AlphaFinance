@@ -1,52 +1,63 @@
-.container {
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  margin: 2rem auto;
-  max-width: 700px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  color: #2C3A47;
-}
-
-.container h2 {
-  font-size: 1.75rem;
-  color: #2C3A47;
-}
-
-.container p {
-  font-size: 1rem;
-  color: #576574;
-  margin-top: -0.5rem;
-}
-
-.container ul {
-  margin-top: 1.5rem;
-  list-style: none;
-  padding: 0;
-}
-
-.container li {
-  margin: 0.6rem 0;
-  font-size: 1.05rem;
+.nifty-wrapper {
   display: flex;
-  justify-content: space-between;
-  background: #f1f2f6;
-  padding: 0.75rem 1rem;
-  border-radius: 0.6rem;
-  transition: background-color 0.3s ease;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 30px 40px;
+  background-color: #ecf0f1;
 }
 
-.container li:hover {
-  background-color: #dfe4ea;
+.nifty-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+  transition: transform 0.3s ease;
 }
 
-.container li span {
-  font-weight: 600;
-  color: #2C3A47;
+.nifty-card:hover {
+  transform: translateY(-4px);
+}
+
+.nifty-card h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #0077cc;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.data-grid div {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.data-grid span {
+  display: block;
+  font-size: 13px;
+  color: #7f8c8d;
 }
 
 .error {
   color: #e74c3c;
-  text-align: center;
-  font-weight: bold;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.change-icon {
+  font-size: 18px;
+  margin-left: 6px;
 }
