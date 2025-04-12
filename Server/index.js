@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import authRoutes from './routes/authRoute.js';
+import stockRoutes from './routes/stockRoutes.js';
+import sensexRoutes from './routes/sensexRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -18,7 +20,8 @@ app.use(cookieParser());
 
 // Routes
 app.use('/api/auth', authRoutes);
-
+app.use('/api/stock', stockRoutes);
+app.use('/api/sensex', sensexRoutes);
 // Connect to DB
 mongoose.connect(process.env.MONGO, {
   // useNewUrlParser: true,
@@ -33,6 +36,8 @@ mongoose.connect(process.env.MONGO, {
 app.get('/test', (req, res) => {
   res.send('🚀 Test route is working!');
 });
+
+
 
 // Start Server
 app.listen(3000, () => {

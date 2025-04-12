@@ -11,7 +11,7 @@ const StockPage = () => {
     try {
       const results = await Promise.all(
         symbols.map(async (symbol) => {
-          const res = await fetch(`http://localhost:5001/stock/${symbol}`); 
+          const res = await fetch(`http://localhost:3000/api/stock/${symbol}`); 
           if (!res.ok) throw new Error(`Error fetching ${symbol}`);
           const data = await res.json();
 
