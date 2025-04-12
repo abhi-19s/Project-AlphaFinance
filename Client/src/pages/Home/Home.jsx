@@ -1,9 +1,14 @@
+import React from 'react'
+import {Hhome} from './Hstock/Hhome'
+import Sensex from './Sensex/Sensex'
+import News from './Hnews/News'
 
-
-export const Home = () => {
-    return (
-        <div>
-            <h1>Home</h1>
-        </div>
-    );
+export const Home =  ()=> {
+  return (
+    <>
+    <Hhome/>
+   <Sensex />
+    </>
+  )
 }
+

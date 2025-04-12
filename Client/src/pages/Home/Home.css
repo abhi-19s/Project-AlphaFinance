@@ -1,0 +1,7 @@
+.parent-container { /* New parent container */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; /* Align items to the top */
+    gap: 1.5rem; /* Add space between the chart and news */
+    padding: 1rem; /* Optional: Add padding around the container */
+  }
