@@ -31,7 +31,7 @@ export default function SignUp() {
       if (!res.ok || data.success === false) {
         throw new Error(data.message || 'Signup failed');
       }
-      navigate('/');
+      navigate('/sign-in');
     } catch (error) {
       setError(error.message || 'Something went wrong.');
     } finally {
@@ -100,7 +100,7 @@ export default function SignUp() {
 
           <p className={styles['info-text']}>
             Already have an account?
-            <Link to="/"><span className={styles['signup-link']}> Sign In</span></Link>
+            <Link to="/sign-in"><span className={styles['signup-link']}> Sign In</span></Link>
           </p>
         </div>
       </div>

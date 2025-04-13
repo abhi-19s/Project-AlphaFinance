@@ -33,8 +33,10 @@ img.logo-img{
 .auth-links {
     display: flex;
     gap: 20px;
+    align-items: center; /* Vertically align items */
 }
 
+/* Styles for Sign In and Sign Up (when not logged in) */
 .auth-links a {
     color: #333;
     margin: auto;
@@ -46,6 +48,36 @@ img.logo-img{
     color: white;
     padding: 6px 12px;
     border-radius: 4px;
+}
+
+.signup-btn:hover {
+    background-color: #005fa3;
+}
+
+/* Styles for Username (NavLink) and Logout (button) when logged in */
+.auth-links > a:first-child { /* Targeting the username NavLink */
+    color: #333; /* Example username color */
+    font-weight: bold;
+    margin-right: 15px; /* Spacing from the logout button */
+    padding: 10px 0; /* Adjust vertical padding if needed */
+}
+
+.auth-links > a:first-child:hover {
+    text-decoration: underline; /* Optional: Add underline on hover for username */
+}
+
+.auth-links > button { /* Targeting the Logout button */
+    background-color: #f0f0f0; /* Example button background */
+    color: #333; /* Example button text color */
+    border: 1px solid #ccc; /* Example button border */
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500; /* Match font weight */
+}
+
+.auth-links > button:hover {
+    background-color: #e0e0e0;
 }
 
 /* Navbar Styles */
@@ -92,24 +124,19 @@ img.logo-img{
     background-color: #005fa3;
 }
 
-.signup-btn:hover {
-    background-color: #005fa3;
-}
-
 .navlink {
     color: white;
     text-decoration: none;
     padding: 10px 15px;
     font-weight: 500;
     transition: color 0.3s ease;
-  }
-  
-  .navlink:hover {
+}
+
+.navlink:hover {
     text-decoration: underline;
-  }
-  
-  .active {
+}
+
+.active {
     text-decoration: underline;
     /* color: #00ffff; Optional: highlight active */
-  }
-  
+}

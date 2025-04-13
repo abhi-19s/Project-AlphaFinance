@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import authRoutes from './routes/authRoute.js';
 import stockRoutes from './routes/stockRoutes.js';
 import sensexRoutes from './routes/sensexRoutes.js';
+import { errorMiddleware } from './utils/error.js';
 
 dotenv.config();
 const app = express();
@@ -22,10 +23,11 @@ app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 app.use('/api/stock', stockRoutes);
 app.use('/api/sensex', sensexRoutes);
+
+app.use(errorMiddleware);
+
 // Connect to DB
 mongoose.connect(process.env.MONGO, {
-  // useNewUrlParser: true,
-  // useUnifiedTopology: true,
 }).then(() => {
   console.log("✅ Connected to MongoDB");
 }).catch((err) => {
