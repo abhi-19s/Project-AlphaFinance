@@ -1,0 +1,213 @@
+/* src/IncomeTaxCalculator.css */
+.tax-calculator-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 2rem;
+    background-color: #1c2833;
+    color: #ecf0f1;
+    border-radius: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .tab {
+    padding: 6px 12px;
+    border: none;
+    background-color: transparent;
+    color: #95a5a6;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .tab.active {
+    background-color: #2c3e50;
+    color: #fff;
+  }
+  
+  .tax-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between form groups */
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Space between label and input */
+  }
+  
+  /* Fieldset for radio buttons */
+  .form-group fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.60rem;
+  }
+  
+  .form-group legend {
+    font-weight: bold;
+    margin-bottom: 0.5rem; /* Space below legend */
+    color: #bdc3c7; /* Lighter legend color */
+    font-size: 1rem;
+  }
+  
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  
+  .radio-option input[type="radio"] {
+    accent-color: #3498db;
+  }
+  
+  .radio-option label {
+    color: #ecf0f1;
+    font-size: 14px;
+  }
+  
+  /* Standard input/label styling */
+  .form-group label {
+    font-weight: normal; /* Less bold labels */
+    color: #bdc3c7; /* Lighter label color */
+    font-size: 0.9rem;
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #2c3e50;
+    border: none;
+    border-radius: 4px;
+    color: #ecf0f1;
+    font-size: 16px;
+  }
+  
+  input[type="text"]::placeholder,
+  input[type="number"]::placeholder {
+    color: #95a5a6;
+  }
+  
+  /* Checkbox styling */
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-direction: row;
+    margin: 8px 0;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    accent-color: #3498db;
+    margin: 0;
+  }
+  
+  .checkbox-group label {
+    color: #ecf0f1;
+    cursor: pointer;
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  
+  /* --- Button --- */
+  .calculate-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db; /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    margin-bottom: 1rem;
+  }
+  
+  .calculate-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+  }
+  
+  
+  
+  /* --- Results Section --- */
+  .results-section {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .result-card {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+  
+  .result-card.old-regime {
+    background-color: #783c3c;
+  }
+  
+  .result-card.new-regime {
+    background-color: #3c783c;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .card-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .tax-amount {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  
+  .tax-percentage {
+    font-size: 14px;
+    color: #bdc3c7;
+  }
+  
+  .progress-bar-container {
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.2); /* Darker background for progress */
+    border-radius: 4px;
+    overflow: hidden; /* Ensure progress bar stays within bounds */
+  }
+  
+  .progress-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  
+  .progress-bar div {
+    height: 100%;
+    background: #f1c40f;
+    width: var(--progress);
+  }
+  
+  .card-body {
+    /* Styles for the main content */
+  }

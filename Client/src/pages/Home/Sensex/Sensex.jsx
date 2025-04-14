@@ -85,7 +85,7 @@ const Sensex = () => {
     <div className="sensex-container">
       <div className="chart-section">
         <h2 className="chart-title">📈 BSE Sensex Chart</h2>
-        {chartData ? <Line data={chartData} options={options} /> : <p>Loading chart...</p>}
+        {chartData ? <Line data={chartData} options={options} /> : <p>Loading chart...</p>}  
       </div>
       <div className="news-section">
         <News/>

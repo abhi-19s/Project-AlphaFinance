@@ -84,18 +84,6 @@
   line-height: 1.5; /* Improve readability */
   margin-bottom: 8px; /* Space between paragraphs */
 }
-
-/* Style for utility classes if needed within module */
-/* Example:
-.textSm { font-size: 0.875rem; }
-.textGray200 { color: #e5e7eb; } // Example color
-.mb2 { margin-bottom: 0.5rem; }
-.textYellow300 { color: #fcd34d; } // Example color
-.underline { text-decoration: underline; }
-.mt2 { margin-top: 0.5rem; }
-.inlineBlock { display: inline-block; }
-*/
-
 .carouselArrow {
   position: absolute;
   top: 50%;

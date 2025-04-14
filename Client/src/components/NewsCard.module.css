@@ -1,6 +1,4 @@
-/* NewsCard.module.css */
 
-/* Styles for the overall list container */
 .newsList {
   display: flex;
   flex-direction: column; /* Stack cards vertically */

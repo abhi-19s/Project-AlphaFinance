@@ -192,9 +192,7 @@ export const Carousel = () => {
 
     // Handle loading state
     if (articles.length === 0) {
-        // Note: These utility classes might be from Tailwind or similar.
-        // CSS Modules won't scope these unless defined within the module.
-        // Keep as is if using a global utility CSS framework.
+
         return <p className="text-center p-4">Loading news...</p>;
     }
 
