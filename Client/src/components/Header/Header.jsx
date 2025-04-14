@@ -7,9 +7,11 @@ import { logout } from "../../redux/user/userSlice";
 export const Header = () => {
   const [data, setData] = useState("");
   const [username, setUsername] = useState("");
+  const [showLogoutConfirm, setShowLogoutConfirm] = useState(false); // NEW
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
@@ -88,7 +90,10 @@ export const Header = () => {
               >
                 Hey, {username}
               </NavLink>
-              <button onClick={handleLogout} className={styles.navlink}>
+              <button
+                onClick={() => setShowLogoutConfirm(true)}
+                className={styles.navlink}
+              >
                 Logout
               </button>
             </>
@@ -163,6 +168,18 @@ export const Header = () => {
           About
         </NavLink>
       </nav>
+      {showLogoutConfirm && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <p>Are you sure you want to logout?</p>
+            <div className={styles.modalButtons}>
+              <button onClick={handleLogout}>Yes</button>
+              <button onClick={() => setShowLogoutConfirm(false)}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
+

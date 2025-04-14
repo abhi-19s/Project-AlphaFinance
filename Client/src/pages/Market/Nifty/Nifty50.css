@@ -5,6 +5,7 @@
   flex: 1;
   padding: 30px 40px;
   background-color: #ecf0f1;
+  margin-top: 40px; /* 🔥 Added spacing from stock cards above */
 }
 
 .nifty-card {

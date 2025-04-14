@@ -19,10 +19,12 @@ a {
     font-weight: bold;
     color: #0077cc;
 }
-img.logo-img{
+
+img.logo-img {
     height: 43px;
     width: auto;
 }
+
 .search-bar input {
     width: 300px;
     padding: 8px 12px;
@@ -33,7 +35,7 @@ img.logo-img{
 .auth-links {
     display: flex;
     gap: 20px;
-    align-items: center; /* Vertically align items */
+    align-items: center;
 }
 
 /* Styles for Sign In and Sign Up (when not logged in) */
@@ -55,25 +57,25 @@ img.logo-img{
 }
 
 /* Styles for Username (NavLink) and Logout (button) when logged in */
-.auth-links > a:first-child { /* Targeting the username NavLink */
-    color: #333; /* Example username color */
+.auth-links > a:first-child {
+    color: #333;
     font-weight: bold;
-    margin-right: 15px; /* Spacing from the logout button */
-    padding: 10px 0; /* Adjust vertical padding if needed */
+    margin-right: 15px;
+    padding: 10px 0;
 }
 
 .auth-links > a:first-child:hover {
-    text-decoration: underline; /* Optional: Add underline on hover for username */
+    text-decoration: underline;
 }
 
-.auth-links > button { /* Targeting the Logout button */
-    background-color: #f0f0f0; /* Example button background */
-    color: #333; /* Example button text color */
-    border: 1px solid #ccc; /* Example button border */
+.auth-links > button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
     padding: 8px 15px;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: 500; /* Match font weight */
+    font-weight: 500;
 }
 
 .auth-links > button:hover {
@@ -138,5 +140,59 @@ img.logo-img{
 
 .active {
     text-decoration: underline;
-    /* color: #00ffff; Optional: highlight active */
 }
+
+/* Logout Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal {
+    background-color: black;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3 {
+    color:blue; /* ✅ Updated text color */
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.modalButtons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modalButtons button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.modalButtons button:first-child {
+    background-color: #d9534f;
+    color: white;
+}
+
+.modalButtons button:last-child {
+    background-color: #5bc0de;
+    color: white;
+}
+

@@ -5,6 +5,10 @@ import googleIcon from '../assets/googleicon.png';
 import logo from '../assets/Alphafinancelogo.jpeg';
 import styles from './sign.module.css';
 
+import { app } from '../firebase';
+import {getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+
+
 export default function SignUp() {
   const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [error, setError] = useState(null);
@@ -39,9 +43,31 @@ export default function SignUp() {
     }
   };
 
-  const handleGoogleAuth = () => {
-    window.location.href = 'http://localhost:3000/api/auth/google';
-  };
+  const handleGoogleAuth = async () => {
+    console.log("handleGoogleAuth called");
+    
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    try {
+        console.log("trying to sign in withh google");
+        
+        const result = await signInWithPopup(auth, provider);
+        // The signed-in user info.
+        console.log("singin successfull");
+        
+        const user = result.user;
+        console.log(user);
+        // You can now send the Firebase user's ID token to your backend for further processing.
+        // or use the user object directly.
+        navigate('/sign-in'); // Or wherever you want to navigate after successful login.
+
+    } catch (error) {
+        console.error("Google sign-in error:", error);
+        setError(error.message || 'Google sign-in failed');
+    }
+};
+
 
   return (
     <div className={styles.container}>
