@@ -4,6 +4,7 @@ import { SiBitcoin } from 'react-icons/si';
 import { FaChartLine } from 'react-icons/fa';
 import { FaRocket ,FaFileContract} from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
+import { FaRegMoneyBillAlt, FaExchangeAlt } from 'react-icons/fa';
 import "./Nav.css";
 
 const Sidebar = () => { 
@@ -54,6 +55,22 @@ const Sidebar = () => {
                 <span className={isOpen ? "show" : "hide"}>Crypto</span>
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/market/currency"
+               className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+              >
+                <FaExchangeAlt size={20}/>
+                <span className={isOpen ? "show" : "hide"}>Currency</span>
+              </NavLink>
+            </li>
+            <li>
+            <NavLink to="/market/tax"
+               className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+              >
+                <FaRegMoneyBillAlt size={20}/>
+                <span className={isOpen ? "show" : "hide"}>Tax Regime</span>
+              </NavLink>
+            </li>
           </ul>
         </div>
 
@@ -65,3 +82,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

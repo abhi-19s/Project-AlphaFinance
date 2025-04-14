@@ -1,0 +1,226 @@
+/* Income.css */
+
+/* Main container for the tax calculator */
+.taxCalculatorContainer {
+  width: 100%;
+  max-width: 900px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+/* Header for the income calculator */
+.taxCalculatorContainer h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.taxCalculatorContainer:hover h2 {
+  color: #007bff;
+}
+
+/* Form styling */
+.taxForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+input[type="text"] {
+  padding: 12px;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.radioOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkboxGroup input {
+  margin-right: 10px;
+}
+
+.calculateButton {
+  padding: 15px;
+  font-size: 1.2rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+.calculateButton:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+.calculateButton:active {
+  transform: translateY(1px);
+}
+
+/* Results Section */
+.resultsSection {
+  margin-top: 40px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.resultCard {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.resultCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.resultCard .cardHeader h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.resultCard .cardBody p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 8px 0;
+}
+
+.resultCard .cardBody .taxAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.resultCard .cardBody .taxPercentage {
+  font-size: 1.3rem;
+  color: #555;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: #007bff;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* Fade-in animation for results */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .taxCalculatorContainer {
+    padding: 20px;
+  }
+
+  .taxCalculatorContainer h2 {
+    font-size: 1.8rem;
+  }
+
+  .formGroup input[type="text"] {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .calculateButton {
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+
+  .resultCard {
+    padding: 15px;
+  }
+
+  .resultCard .cardHeader h3 {
+    font-size: 1.4rem;
+  }
+
+  .resultCard .cardBody p {
+    font-size: 1rem;
+  }
+
+  .resultCard .cardBody .taxAmount {
+    font-size: 1.8rem;
+  }
+}
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.disclaimer {
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 10px;
+}

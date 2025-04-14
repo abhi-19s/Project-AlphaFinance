@@ -17,7 +17,7 @@ const teamMembers = [
       name: "Aditya Keshava",
       title: "Back-end Developer",
       location: "Bengaluru",
-      image: "./aditya.jpeg",
+      image: "./aditya.jpg",
     },
   ];
   
